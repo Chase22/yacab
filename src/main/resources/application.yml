@@ -1,0 +1,24 @@
+micronaut:
+  application:
+    name: yacab
+  metrics:
+    enabled: true
+    export:
+      prometheus:
+        enabled: true
+        descriptions: true
+        step: PT1M
+datasources:
+  default:
+    url: jdbc:postgresql://localhost:5432/postgres
+    driverClassName: org.postgresql.Driver
+    username: postgres
+    password: ''
+jasync:
+  client:
+    port: 5432
+    host: the-host
+    database: the-db
+    username: test
+    password: test
+    maxActiveConnections: 5

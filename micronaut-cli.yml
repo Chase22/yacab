@@ -1,0 +1,6 @@
+applicationType: default
+defaultPackage: io.github.chase22.telegram
+testFramework: spock
+sourceLanguage: kotlin
+buildTool: gradle_kotlin
+features: [ annotation-api, app-name, cache-caffeine, flyway, gradle, hibernate-validator, http-client, jasync-sql, jdbc-hikari, kotlin, kotlin-application, kotlin-extension-functions, logback, management, micrometer, micrometer-prometheus, netty-server, postgres, readme, rxjava3, security, security-annotations, shade, spock, testcontainers, views-thymeleaf, yaml ]
