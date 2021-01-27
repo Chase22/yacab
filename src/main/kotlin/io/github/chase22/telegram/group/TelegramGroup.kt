@@ -8,7 +8,8 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 data class TelegramGroup(
-    val chatId: Long
+    val chatId: Long,
+    val paused: Boolean
 ) : Entity<Long> {
     override fun getKey(): Long = chatId
 }
@@ -23,10 +24,13 @@ class JasyncTelegramGroupRepository @Inject constructor(
     override fun getTableName(): String = "telegram_group"
 
     override fun save(entity: TelegramGroup) = mapRowToEntity(
-        client.sendPreparedStatement("INSERT INTO telegram_group values (?)", listOf(entity.chatId))
+        client.sendPreparedStatement("INSERT INTO telegram_group values (?, ?)", listOf(entity.chatId, entity.paused))
             .get().rows[0]
     )
 
-    override fun mapRowToEntity(rowData: RowData): TelegramGroup = TelegramGroup(rowData.getLong(0)!!)
+    override fun mapRowToEntity(rowData: RowData): TelegramGroup = TelegramGroup(
+        rowData.getLong(0)!!,
+        rowData.getBoolean(1)!!
+    )
 
 }

@@ -15,11 +15,9 @@ class StartCommand @Inject constructor(
     private val telegramGroupRepository: TelegramGroupRepository
 ) : BotCommand("start", "Starts the bot") {
     override fun execute(absSender: AbsSender, user: User, chat: Chat, arguments: Array<out String>) {
-        if (telegramGroupRepository.existsById(chat.id)) {
-            absSender.send("Bot is already started", chat.id);
-        } else {
-            absSender.send("Bot started", chat.id)
-            telegramGroupRepository.save(TelegramGroup(chat.id))
+        if (!telegramGroupRepository.existsById(chat.id)) {
+            absSender.send("Welcome, the bot has been started\nPeople will need to verify themselves before entering the group", chat.id)
+            telegramGroupRepository.save(TelegramGroup(chat.id, false))
         }
     }
 }
