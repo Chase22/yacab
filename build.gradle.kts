@@ -59,13 +59,17 @@ dependencies {
     implementation("io.micronaut.flyway:micronaut-flyway")
     implementation("io.micronaut.sql:micronaut-jdbc-hikari")
     implementation("io.micronaut.beanvalidation:micronaut-hibernate-validator")
-    implementation("io.micronaut.sql:micronaut-jasync-sql")
     implementation("io.micronaut.security:micronaut-security")
     implementation("io.micronaut.kotlin:micronaut-kotlin-extension-functions")
     implementation("io.micronaut.rxjava3:micronaut-rxjava3")
     implementation("io.micronaut.cache:micronaut-cache-caffeine")
     implementation("io.micronaut.views:micronaut-views-thymeleaf")
 
+    implementation("io.micronaut.sql:micronaut-jasync-sql")
+    implementation("com.github.jasync-sql:jasync-postgresql:1.1.6")
+
+    implementation("org.telegram:telegrambots:5.0.1.1")
+    implementation("org.telegram:telegrambotsextensions:5.0.1.1")
     implementation("io.github.chase22.telegram:telegrambot-library:0.1.0")
 
     runtimeOnly("ch.qos.logback:logback-classic")

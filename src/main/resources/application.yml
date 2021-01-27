@@ -10,15 +10,18 @@ micronaut:
         step: PT1M
 datasources:
   default:
-    url: jdbc:postgresql://localhost:5432/postgres
+    url: jdbc:postgresql://${jasync.client.host}:${jasync.client.port}/${jasync.client.database}
     driverClassName: org.postgresql.Driver
-    username: postgres
-    password: ''
+    username: ${jasync.client.username}
+    password: ${jasync.client.password}
 jasync:
   client:
     port: 5432
-    host: the-host
-    database: the-db
-    username: test
-    password: test
+    host: localhost
+    database: yacab
+    username: postgres
+    password: postgres
     maxActiveConnections: 5
+
+bot:
+  username: yetanothercaptchabot
