@@ -22,6 +22,10 @@ jasync:
     username: postgres
     password: postgres
     maxActiveConnections: 5
+flyway:
+  datasources:
+    default:
+      enabled: true
 
 bot:
   username: yetanothercaptchabot
