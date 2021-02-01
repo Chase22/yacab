@@ -9,7 +9,6 @@ import org.telegram.telegrambots.meta.api.objects.Update
 import org.telegram.telegrambots.updatesreceivers.DefaultBotSession
 import javax.annotation.PostConstruct
 import javax.inject.Inject
-import javax.inject.Singleton
 
 @Context
 class TelegramBot @Inject constructor(
@@ -25,6 +24,9 @@ class TelegramBot @Inject constructor(
         eventPublisher.publishEventAsync(UpdateApplicationEvent(this, update))
         if (update.hasMessage()) {
             eventPublisher.publishEventAsync(MessageApplicationEvent(this, update.message))
+            update.message.newChatMembers.forEach {
+                eventPublisher.publishEventAsync(NewChatMemberApplicationEvent(this, it, update.message))
+            }
         }
         if (update.hasCallbackQuery()) {
             eventPublisher.publishEventAsync(CallbackQueryApplicationEvent(this, update.callbackQuery))

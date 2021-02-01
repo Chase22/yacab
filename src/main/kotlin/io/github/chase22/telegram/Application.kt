@@ -5,7 +5,7 @@ import io.micronaut.runtime.Micronaut.*
 fun main(args: Array<String>) {
     build()
             .args(*args)
-            .packages("io.github.chase22.telegram")
+            .packages("io.github.chase22.telegram", "io.github.chase22.telegram.lib")
             .start()
 }
 
