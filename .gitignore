@@ -12,3 +12,6 @@ out/
 .settings
 .classpath
 .factorypath
+
+lib/botLibrary
+src/main/kotlin/io/github/chase22/telegram/lib

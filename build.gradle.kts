@@ -46,6 +46,7 @@ micronaut {
 
 dependencies {
     kapt("io.micronaut.security:micronaut-security-annotations")
+
     implementation("io.micronaut:micronaut-validation")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}")
     implementation("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
@@ -70,7 +71,6 @@ dependencies {
 
     implementation("org.telegram:telegrambots:5.0.1.1")
     implementation("org.telegram:telegrambotsextensions:5.0.1.1")
-    implementation("io.github.chase22.telegram:telegrambot-library:0.1.2-SNAPSHOT")
 
     runtimeOnly("ch.qos.logback:logback-classic")
     runtimeOnly("com.fasterxml.jackson.module:jackson-module-kotlin")
